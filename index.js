@@ -2,6 +2,8 @@ let btn = document.querySelector('#buttons');
 let pscore = document.querySelector('#pscore')
 let cscore = document.querySelector('#cscore')
 let winner = document.querySelector('#winner')
+let com = document.querySelector('#com')
+let player = document.querySelector('#player')
 
 const getComputerChoice = ()=>{
     const arrayChoice = ["Rock", "Scissors", "Paper"]
@@ -32,7 +34,6 @@ let computerChoice = getComputerChoice()
 const gameRound = (playerChoice, computersChoice)=> {
     playerChoice = playerChoice.toLowerCase()
     computersChoice = computersChoice.toLowerCase()
-    console.log("com choice = " + computersChoice)
     
     if (playerChoice == computersChoice){
         winner.textContent = "Wow, this was a tie no score was added, please continue"
@@ -45,6 +46,8 @@ const gameRound = (playerChoice, computersChoice)=> {
     }else{
         computerscore += 1
     }
+    player.textContent = `You played: ${playerChoice}`
+    com.textContent = `Computer played: ${computersChoice}`
     pscore.textContent = `Player Score: ${playerscore}`
     cscore.textContent = `Computer Score: ${computerscore}`
 }
